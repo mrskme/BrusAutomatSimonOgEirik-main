@@ -6,7 +6,7 @@ namespace BrusAutomatSimonOgEirik
 {
     class Transactions
     {
-        private double Balance;
+        protected double Balance;
 
         public void InsertCoins(int amount)
         {
@@ -29,6 +29,6 @@ namespace BrusAutomatSimonOgEirik
             if (Balance >= price) Balance -= price;
             else Console.WriteLine("Error 404. Poor bastard detected. You cannot afford that you silly poor bastard. Insert more money or leave thirsty");
         }
-        public Lis
+        //public Lis
     }
 }

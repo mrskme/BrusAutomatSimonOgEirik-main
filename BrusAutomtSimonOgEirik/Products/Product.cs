@@ -6,11 +6,9 @@ namespace BrusAutomatSimonOgEirik
 {
     class Product
     {
-       
         public readonly double Price;
         public readonly string Name;
         public int Storage;
-         
         public Product(double price, string name, int storage)
         {
             Price = price;

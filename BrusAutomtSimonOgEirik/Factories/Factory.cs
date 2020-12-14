@@ -6,7 +6,7 @@ namespace BrusAutomatSimonOgEirik
 {
     abstract class Factory
     {
-        public abstract void MakeProduct(Product.Types type, int amount);
-        public abstract void SendProductToStorage();
+        public abstract List<Product> MakeProducts();
+        public abstract void SendProductToStorage(List<Product> products);
     }
 }
