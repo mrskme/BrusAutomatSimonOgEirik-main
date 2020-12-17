@@ -15,7 +15,7 @@ namespace BrusAutomatSimonOgEirik
 
         public void ReturnCoins()
         {
-            Console.WriteLine($"{Balance} coins was blurted out");
+            Console.WriteLine($"{Balance} coins was blurted out\n\n");
             Balance -= Balance;
         }
 
@@ -27,8 +27,6 @@ namespace BrusAutomatSimonOgEirik
         public void DeductPrice(double price)
         {
             if (Balance >= price) Balance -= price;
-            else Console.WriteLine("Error 404. Poor bastard detected. You cannot afford that you silly poor bastard. Insert more money or leave thirsty");
         }
-        //public Lis
     }
 }

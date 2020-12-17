@@ -22,10 +22,10 @@ namespace BrusAutomatSimonOgEirik
             return CandyList;
         }
 
-        public override void SendProductToStorage(List<Product> products)
-        {
-            foreach (var product in products) Storage.StorageContainer.Add(product);
-        }
+        //public override void SendProductToStorage(List<Product> products)
+        //{
+        //    foreach (var product in products) Storage.StorageContainer.Add(product);
+        //}
 
     }
 }

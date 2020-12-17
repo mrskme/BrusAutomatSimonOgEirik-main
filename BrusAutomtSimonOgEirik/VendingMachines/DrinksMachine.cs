@@ -7,44 +7,42 @@ namespace BrusAutomatSimonOgEirik
 {
     class DrinksMachine : VendingMachine
     {
-        public List<Product> _machineStorage = new List<Product>();
+        public List<Drink> _machineStorage = new List<Drink>();
 
-        public override Product ChooseSoda(string sodaName)
+        public override Response ChooseSoda(string sodaName)
         {
-            Product chosenSoda = _machineStorage.FirstOrDefault(S => S.Name == sodaName);
-            if (CheckSuccessfullProduct(chosenSoda).IsSuccess)
+            Drink chosenSoda = _machineStorage.FirstOrDefault(S => S.Name == sodaName);
+            return CheckSuccessfullProduct(chosenSoda, sodaName);
+        }
+        internal override void SpitOutProductOrError(Response response)
+        {
+            Console.WriteLine(response.Message);
+        }
+        private Response CheckSuccessfullProduct(Product chosenSoda, string sodaName)
+        {
+            if (chosenSoda == null)
             {
-                return chosenSoda;
+                return new Response($"{sodaName} is not valid name", false);
             }
-            return null;
-        }
-        internal override Product SpitOutProduct(Product chosenSoda)
-        {
-            chosenSoda.Storage--;
-            Console.WriteLine($"A {chosenSoda.Name} was dropped to the bottom tray");
-            return null;
-        }
-        private Response CheckSuccessfullProduct(Product chosenSoda)
-        {
+            if (0 > chosenSoda.Storage)
+            {
+                return new Response($"The machine is out of that soda", false);
+            }
             if (Balance < chosenSoda.Price)
             {
-                return new Response(false, "you need to put in more monay");
+                return new Response( "you need to put in more monay", false);
             }
-            if (chosenSoda != null)
-            {
-                return new Response(false, $"{sodaName} is not valid name");
-            }
-            if (chosenSoda.Storage > 0)
-            {
-                return new Response(false, $"The machine is out of that soda");
-            }
+            chosenSoda.Storage--;
+            DeductPrice(chosenSoda.Price);
+            return new Response($"Error 404, Instructions not clear, dick stuck in blender. bare tulla det funka her er din {chosenSoda.Name}", true);
         }
 
         public override string ShowProductList()
         {
-            string ProductsString = string.Empty;
-            foreach (var product in _machineStorage) ProductsString.Concat(product.Name + " ");
-            return ProductsString;
+            StringBuilder concatenatedString = new StringBuilder();
+            concatenatedString.Append("Product List:\n\n");
+            foreach (var productBreed in _machineStorage) concatenatedString.Append($" {productBreed.Size}MLs - {productBreed.Material} -  {productBreed.Name} - {productBreed.Storage} left - {productBreed.Price} NOK\n");
+            return concatenatedString.ToString();
         } 
     }
 }

@@ -6,8 +6,8 @@ namespace BrusAutomatSimonOgEirik
 {
     abstract class VendingMachine : Transactions
     {
-        public abstract Product ChooseSoda(string product);
-        internal abstract void SpitOutProduct(Product chosenProduct);
+        public abstract Response ChooseSoda(string product);
+        internal abstract void SpitOutProductOrError(Response response);
         public abstract string ShowProductList();
     }
 }

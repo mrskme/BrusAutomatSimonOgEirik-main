@@ -21,12 +21,13 @@ namespace BrusAutomatSimonOgEirik
                 new Drink("tin can", 250, 2, "Solo", 25),
                 new Drink("tin can", 500, 591, "Burn", 1),
             };
+            //er DrinksList både 
             return DrinksList;
         }
 
-        public override void SendProductToStorage(List<Product> products)
-        {
-            foreach (var product in products) Storage.StorageContainer.Add(product);
-        }
+        //public override void SendProductToStorage(List<Product> products)
+        //{
+        //    foreach (var product in products) Storage.StorageContainer.Add(product);
+        //}
     }
 }

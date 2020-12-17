@@ -15,12 +15,12 @@ namespace BrusAutomatSimonOgEirik
             {
                 if (product is Chocolate)
                 {
-                    chocolateMachine._machineStorage.Add(product);
+                    chocolateMachine._machineStorage.Add((Chocolate)product);
                 }
 
                 if (product is Drink)
                 {
-                    drinksMachine._machineStorage.Add(product);
+                    drinksMachine._machineStorage.Add((Drink)product);
                 }
             }
             StorageContainer.Clear();

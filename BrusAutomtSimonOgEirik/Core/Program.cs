@@ -6,7 +6,7 @@ namespace BrusAutomatSimonOgEirik
     class Program /*: VendingMachine*/
     {
         static void Main(string[] args)
-        {
+       {
             //Implementer en brusautomat. Ulike drikker har ulik pris. Automaten har en lagerbeholdning.
             //Man kan putte på mynter (1kr, 5kr, 10kr, 20kr). Man trykker på en knapp for en bestemt drikk
             //- hvis man har puttet på nok får man denne og saldoen reduseres tilsvarende.
@@ -15,8 +15,6 @@ namespace BrusAutomatSimonOgEirik
             //En storage som lagrer brus og er mellomledd mellom factory og vending machine
             //abstrakt method and override
             //SjokoladeMachine
-
-            //spørsmål til terje: Er det best å sende Factory til storage eller å gette fra storage 
 
             var drinksFactory = new DrinksFactory();
             var chocolateFactory = new ChocolateFactory();
@@ -33,15 +31,14 @@ namespace BrusAutomatSimonOgEirik
             storage.SendItemToMachines(chocolateMachine, drinksMachine);
 
             //DrinksMachine
-            drinksMachine.InsertCoins(10);
+            drinksMachine.InsertCoins(100);
             drinksMachine.CheckBalance();
 
-            var chosenSoda = drinksMachine.ChooseSoda("Coca Cola");
-            drinksMachine.DeductPrice(chosenSoda.Price);
-            drinksMachine.SpitOutProduct(chosenSoda);
-            drinksMachine.ShowProductList();
-
+            var response = drinksMachine.ChooseSoda("Coca Cola");
+            drinksMachine.SpitOutProductOrError(response);
             drinksMachine.ReturnCoins();
+
+            Console.WriteLine(drinksMachine.ShowProductList());
 
             //ChocolateMachine
             //chocolateMachine.InsertCoins(20);
@@ -49,7 +46,7 @@ namespace BrusAutomatSimonOgEirik
 
             //var chosenChocolate = chocolateMachine.chooseChocolate("White Lion");
             //chocolateMachine.DeductPrice(chosenChocolate.Price);
-            //chocolateMachine.SpitOutProduct(chosenChocolate);
+            //chocolateMachine.SpitOutProductOrError(chosenChocolate);
 
             //chocolateMachine.ReturnCoins();
 

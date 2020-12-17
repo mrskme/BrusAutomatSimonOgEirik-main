@@ -8,14 +8,14 @@ namespace BrusAutomtSimonOgEirik
     class ChocolateMachine : VendingMachine
     {
         public List<Product> _machineStorage = new List<Product>();
-        public override Product ChooseSoda(string input)
+        public override Response ChooseSoda(string input)
         {
             return null;
         }
 
-        internal override void SpitOutProduct(Product chosenChocolate)
+        internal override void SpitOutProductOrError(Response response)
         {
-            
+
         }
 
         public override string ShowProductList()
