@@ -31,13 +31,16 @@ namespace BrusAutomatSimonOgEirik
             storage.SendItemToMachines(chocolateMachine, drinksMachine);
 
             //DrinksMachine
-            drinksMachine.InsertCoins(100);
+            drinksMachine.InsertCoins(500);
             drinksMachine.CheckBalance();
 
             Console.WriteLine(drinksMachine.ShowProductList());
 
-            var response = drinksMachine.ChooseProduct("Coca Cola", "Tin can");
+            var response = drinksMachine.ChooseProduct("Urge Intense", "Plastic");
+            var response2 = drinksMachine.ChooseProduct("Solo", "Plastic");
+
             drinksMachine.SpitOutProductOrError(response);
+            drinksMachine.SpitOutProductOrError(response2);
             drinksMachine.ReturnCoins();
 
             Console.WriteLine(drinksMachine.ShowProductList());
