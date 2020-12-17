@@ -21,7 +21,7 @@ namespace BrusAutomatSimonOgEirik
 
         public void CheckBalance()
         {
-            Console.WriteLine($"Current balance is {Balance}");
+            Console.WriteLine($"Welcome to the fully automated walking talking speach recognizing soda vending machine\nCurrent balance is {Balance}");
         }
 
         public void DeductPrice(double price)

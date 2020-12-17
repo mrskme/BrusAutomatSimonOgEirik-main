@@ -34,7 +34,9 @@ namespace BrusAutomatSimonOgEirik
             drinksMachine.InsertCoins(100);
             drinksMachine.CheckBalance();
 
-            var response = drinksMachine.ChooseSoda("Coca Cola");
+            Console.WriteLine(drinksMachine.ShowProductList());
+
+            var response = drinksMachine.ChooseProduct("Coca Cola", "Tin can");
             drinksMachine.SpitOutProductOrError(response);
             drinksMachine.ReturnCoins();
 

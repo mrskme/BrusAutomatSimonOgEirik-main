@@ -8,7 +8,7 @@ namespace BrusAutomtSimonOgEirik
     class ChocolateMachine : VendingMachine
     {
         public List<Product> _machineStorage = new List<Product>();
-        public override Response ChooseSoda(string input)
+        public override Response ChooseProduct(string chocolateBrand, string chocolateApartheid)
         {
             return null;
         }
